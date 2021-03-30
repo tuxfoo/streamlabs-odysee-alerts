@@ -62,3 +62,4 @@ while True:
                     alert(channel, tip["amount"])
                 except:
                     print("No signing channel")
+    time.sleep(15)
