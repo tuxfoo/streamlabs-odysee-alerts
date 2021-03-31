@@ -70,7 +70,7 @@ async def main():
             try:
                 timestamp = int(tip["timestamp"])
                 # Ignore if tip is older than 2 hours
-                if timestamp < int(time.time()) - 7200:
+                if timestamp > int(time.time()) - 7200:
                     channel = await get_channel(tip["signing_channel"]["channel_id"])
                     print(channel + ": " + tip["amount"])
                     await alert(channel, tip["amount"])
