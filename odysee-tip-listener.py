@@ -61,7 +61,10 @@ async def main():
     header = "{'content-type': 'applicati1on/json', 'Accept-Charset': 'UTF-8'}"
     async with aiohttp.ClientSession() as session:
         async with session.post(url, data=payload) as response:
+            print(response.status)
             response = await response.text()
+
+
     result = json.loads(response)
     #check if tip is new
     for tip in result["result"]["items"]:
@@ -79,3 +82,4 @@ async def main():
 
 while True:
     asyncio.run(main())
+    time.sleep(10)
