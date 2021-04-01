@@ -10,7 +10,7 @@ import asyncio
 # so make sure you also install the following 2 modules
 # python -m pip install aiohttp asyncio
 # Change this to your stream claim_id for each stream
-claim_id = "e78621e7ea5ddb580147f8be5cd8abf8fee35d2d"
+claim_id = "59b5b49cf24df8b62f0404f66736d3e3708bc768"
 
 received = "true"
 tips = []
@@ -68,7 +68,6 @@ async def main():
     #check if tip is new
     for tip in result["result"]["items"]:
         if tip["txid"] not in tips:
-            tips.append(tip["txid"])
             try:
                 timestamp = int(tip["timestamp"])
                 # Ignore if tip is older than 2 hours
@@ -76,8 +75,9 @@ async def main():
                     channel = await get_channel(tip["signing_channel"]["channel_id"])
                     print(channel + ": " + tip["amount"])
                     await alert(channel, tip["amount"])
+                    tips.append(tip["txid"])
             except:
-                print("No signing channel")
+                print("No signing channel (Some one tipped but it is not confirmed on blockchain yet)")
 
 while True:
     asyncio.run(main())
