@@ -61,7 +61,6 @@ async def main():
     header = "{'content-type': 'applicati1on/json', 'Accept-Charset': 'UTF-8'}"
     async with aiohttp.ClientSession() as session:
         async with session.post(url, data=payload) as response:
-            print(response.status)
             response = await response.text()
 
 
