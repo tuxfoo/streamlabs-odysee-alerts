@@ -1,9 +1,13 @@
+# odysee-tip-listener.py
+
+A script that will query the lbry API for tips made on a odysee livestream. Once a tip is confirmed on the block chain, an alert will be pushed to the simple-alerts nodecg bundle. A tutorial can be found here https://odysee.com/@tuxfoo:e/simple-alerts:9
+
 # streamlabs-odysee-alerts
 A bash script that will push alerts about LBC donation's to streamlabs.
 
 This script will convert the current value of LBC into USD and send an alert to streamlabs.
 
-At the moment Odysee live streaming is in testing and I do not have an invite to help test it. I have no idea what chat system it is using to create the bot component for this.
+You will need to create a bot to activate the alerts, you could edit the odysee-tip-listener.py to work with this one.
 
 This is a bash script, so it will only work on Linux and maybe Mac and BSD.
 
